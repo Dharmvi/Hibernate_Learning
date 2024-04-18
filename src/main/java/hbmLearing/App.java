@@ -9,7 +9,9 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.query.Query;
+
+import hbmLearning.Entity.Employee;
+import jakarta.persistence.TypedQuery;
 
 public class App {
 
@@ -22,34 +24,10 @@ public class App {
 		Transaction tx = session.beginTransaction();
 		System.out.println("Staart...");
 
-//		Example of HQL to get all the records
-		Query query1 = session.createQuery("from Employee");
-		List list = query1.list();
-//		Query q=session.createQuery("select max(name) from Employee");  
-//		List<Integer> list1=q.list();  
-//		System.out.println(list1.get(0));  
-
-//		HQL to get records with pagination
-//		Query query2=session.createQuery("from Employee");  
-//		query2.setFirstResult(5);  
-//		query2.setMaxResults(10);  
-//		List list2=query2.list();//will return the records from 5 to 10th number  
-//		System.out.println("5 to 10: "+list2);
-
-//		HQL update query Using Named Parameters
-//		Query q=session.createQuery("update Employee set name=:n where id=:i");  
-//		q.setParameter("n","Udit kumar");  
-//		q.setParameter("i",1);  
-//		System.out.println("status: "+q.executeUpdate());  
-
-//		HQL delete query
-//		Query query = session.createQuery("delete from Employee where id= 16");
-//		query.executeUpdate();
-
-//		Query query1=session.createQuery("from Employee");
-//		List list2 = query1.list();
-//		System.out.println(list2);
-
+		 TypedQuery<Employee> query =session.createNamedQuery("Employee.findEmployeeById",Employee.class);    
+		 query.setParameter("id",1);      
+		 List<Employee> employees=query.getResultList();
+		 employees.forEach(System.out::println);
 		tx.commit();
 		session.close();
 		sf.close();
