@@ -9,9 +9,9 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
 
 import hbmLearning.Entity.Employee;
-import jakarta.persistence.TypedQuery;
 
 public class App {
 
@@ -24,10 +24,19 @@ public class App {
 		Transaction tx = session.beginTransaction();
 		System.out.println("Staart...");
 
-		 TypedQuery<Employee> query =session.createNamedQuery("Employee.findEmployeeById",Employee.class);    
-		 query.setParameter("id",1);      
+//		 TypedQuery<Employee> query =session.createNamedQuery("Employee.findEmployeeById",Employee.class);    
+		Query<Employee> query =session.createNamedQuery("Employee.findEmployeeById",Employee.class);    
+		 query.setParameter("id",4);      
 		 List<Employee> employees=query.getResultList();
-		 employees.forEach(System.out::println);
+		 System.out.println(employees);
+		 
+		 System.out.println();
+		 
+		 
+		 Query<Employee> q = session.createNamedQuery("Employee.findByGender",Employee.class);
+		 q.setParameter("gender", "male");
+		 List<Employee> employees2=q.list();
+		 System.out.println(employees2);
 		tx.commit();
 		session.close();
 		sf.close();
