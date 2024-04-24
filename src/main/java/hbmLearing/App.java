@@ -16,12 +16,13 @@ public class App {
 		Session session1 = HibernateUtil.getSessionFactory().openSession();
 
 		save(session1);
-
-		Employee em = session1.get(Employee.class, 1);
-		System.out.println("employee:  " + em);
-		em.getAddress().forEach(a -> {
-			System.out.println("address:  " + a);
-		});
+//
+//		Employee em = session1.get(Employee.class, 1);
+//		System.out.println("employee:  " + em);
+//		System.out.println(em.getAddress());
+//		em.getAddress().forEach(a -> {
+//			System.out.println("address:  " + a);
+//		});
 
 		Address add = (Address) session1.get(Address.class, 2);
 		System.out.println("addd..." + add);
@@ -47,11 +48,11 @@ public class App {
 		a3.setEmployee(e1);
 		a4.setEmployee(e1);
 		a5.setEmployee(e1);
-//		session.persist(a1);
-//		session.persist(a2);
-//		session.persist(a3);
-//		session.persist(a4);
-//		session.persist(a5);
+		session.persist(a1);
+		session.persist(a2);
+		session.persist(a3);
+		session.persist(a4);
+		session.persist(a5);
 		List<Address> ad = new ArrayList<>();
 		ad.add(a1);
 		ad.add(a2);
