@@ -16,16 +16,16 @@ public class Address {
 	public String street;
 	public String city;
 	
-	@OneToOne( mappedBy = "address")
-	public Employee employee;
-	
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
+//	@OneToOne//( mappedBy = "address")
+//	public Employee employee;
+//	
+//	public Employee getEmployee() {
+//		return employee;
+//	}
+//
+//	public void setEmployee(Employee employee) {
+//		this.employee = employee;
+//	}
 
 	public Address() {
 	}

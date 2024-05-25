@@ -47,9 +47,9 @@ public class App {
 	private static void fetchAllAddress(Session session) {
 		System.out.println("...............Address Fetching..........");
 		List<Address> resultList = session.createQuery("From Address", Address.class).getResultList();
-		for (Address add : resultList) {
-			System.out.print(add+"     "+add.getEmployee());
-		}
+//		for (Address add : resultList) {
+//			System.out.print(add+"     "+add.getEmployee());
+//		}
 //		System.out.println(resultList.get(1).employee);
 		System.out.println("...............Address end...........");
 	}
@@ -63,7 +63,7 @@ public class App {
 		Address address = new Address("GZB", "UP");
 //		address.employee = e;
 		e.setAddress(address);
-		address.setEmployee(e);
+//		address.setEmployee(e);
 		session.persist(address);
 		session.persist(e);
 //		Employee e1 = new Employee();
