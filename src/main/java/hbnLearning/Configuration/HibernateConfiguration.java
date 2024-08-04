@@ -24,7 +24,7 @@ public class HibernateConfiguration {
             properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
             // Echo all executed SQL to stdout (for debugging)
             properties.put(Environment.SHOW_SQL, "true");
-            properties.put(Environment.HBM2DDL_AUTO, "update");
+            properties.put(Environment.HBM2DDL_AUTO, "create");
             properties.put(Environment.FORMAT_SQL, "true");
             // Apply properties to the registry builder
             StandardServiceRegistry registry=new StandardServiceRegistryBuilder().applySettings

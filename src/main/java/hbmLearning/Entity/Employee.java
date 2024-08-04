@@ -5,10 +5,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 
 @Entity//(name="emp18")
 //@Table(name = "emp11")
 public class Employee {
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
 	@Column(name = "emp_name")
 	private String name;
 	@Id
@@ -18,6 +25,8 @@ public class Employee {
 	private String gender;
 	@Column
 	private String address;
+	@Transient
+	private String city;
 	
 	
 	

@@ -24,6 +24,7 @@ public class App {
 		e.setName("Mukul");
 		e.setGender("male");
 		e.setAddress("Noida");
+		e.setCity("GZB");
 		session.persist(e);
 		tx.commit();
 		Query q = session.createQuery("from Employee");
