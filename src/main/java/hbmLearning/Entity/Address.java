@@ -17,16 +17,16 @@ public class Address {
 	@Transient
 	public String country;
 	
-//	@OneToOne( mappedBy = "address")
-//	public Employee employee;
-//	
-//	public Employee getEmployee() {
-//		return employee;
-//	}
-//
-//	public void setEmployee(Employee employee) {
-//		this.employee = employee;
-//	}
+	@OneToOne( mappedBy = "address")
+	public Employee employee;
+	
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 
 	public Address() {
 	}

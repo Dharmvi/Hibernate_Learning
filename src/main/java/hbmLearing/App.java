@@ -20,7 +20,7 @@ public class App {
 		save(session1);
 //		Employee em =  session1.get(Employee.class, 1);
 //		System.out.println(em);
-//		System.out.println(em.address);
+//		System.out.println(em.getAddress());
 //		Address add = (Address) session1.get(Address.class, 1);
 //		System.out.println(add);
 //		System.out.println(add.employee);
@@ -64,7 +64,7 @@ public class App {
 		e.setLastName("sharma");
 		Address address = new Address("GZB", "UP","IND");
 		e.setAddress(address);
-//		address.setEmployee(e);
+		address.setEmployee(e);
 		session.persist(address);
 		session.persist(e);
 		transaction.commit();
